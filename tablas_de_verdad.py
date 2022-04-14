@@ -1,3 +1,5 @@
+#Programa para resolver tablas de verdad.
+
 nLetras = 0
 
 while nLetras < 1 or nLetras > 3:
