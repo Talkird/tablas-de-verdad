@@ -66,10 +66,10 @@ def conjuncion(lista1, lista2):
     return lista_resultado
 
 #Verdadera menos en el caso F-F
-def disyun_incluyente(lista1, lista2):
+def disyuncion_in(lista1, lista2):
 
     lista_resultado = []
-    for i in range(len(p)):    
+    for i in range(len(lista1)):    
         if lista1[i] == 'F' and lista2[i] == 'F':
             lista_resultado.append('F')
         else:
@@ -77,12 +77,12 @@ def disyun_incluyente(lista1, lista2):
 
     return lista_resultado
 
-#Verdadera si al menos una es V
-def disyun_excluyente(lista1, lista2):
+#Verdadera cuando son distintas
+def disyuncion_ex(lista1, lista2):
 
     lista_resultado = []
-    for i in range(len(p)):    
-        if lista1[i] == 'V' and lista2[i] == 'F' or lista1[i] == 'F' and lista2[i] == 'V':
+    for i in range(len(lista1)):    
+        if lista1[i] != lista2[i]:
             lista_resultado.append('V')
         else:
             lista_resultado.append('F')
@@ -93,7 +93,7 @@ def disyun_excluyente(lista1, lista2):
 def condicional(lista1, lista2):
 
     lista_resultado = []
-    for i in range(len(p)):    
+    for i in range(len(lista1)):    
         if lista1[i] == 'V' and lista2[i] == 'F':
             lista_resultado.append('F')
         else:
@@ -105,13 +105,12 @@ def condicional(lista1, lista2):
 def bicondicional(lista1, lista2):
 
     lista_resultado = []
-    for i in range(len(p)):    
-        if lista1[i] == 'V' and lista2[i] == 'V' or lista1[i] == 'F' and lista2[i] == 'F':
+    for i in range(len(lista1)):    
+        if lista1[i] == lista2[i]:
             lista_resultado.append('V')
         else:
             lista_resultado.append('F')
 
     return lista_resultado
 
-listaVertical( negacion(disyun_incluyente(p, negacion(p))) )
-
+listaVertical( condicional(conjuncion(condicional(p, q), condicional(q, r)), condicional(p, r)) )
