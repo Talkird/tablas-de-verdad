@@ -113,4 +113,52 @@ def bicondicional(lista1, lista2):
 
     return lista_resultado
 
-listaVertical( condicional(conjuncion(condicional(p, q), condicional(q, r)), condicional(p, r)) )
+#Relaciones Logicas
+def relaciones_logicas(lista1, lista2):
+
+    #Implicación
+    implicacion = 0
+    for i in range(len(lista1)):
+        if lista1[i] == 'V' and lista2[i] != 'F':
+            implicacion += 1
+        
+    if implicacion == len(lista1):
+        print("La lista 1 implica a la lista 2.")
+
+    #Equivalencia
+    equivalencia = 0
+    for i in range(len(lista1)):
+        if lista1[i] == lista2[i]:
+            equivalencia += 1
+        
+    if equivalencia == len(lista1):
+        print("La lista 1 es equivalente a la lista 2.")
+
+    #Contrariedad
+    contrariedad = 0
+    for i in range(len(lista1)):
+        if lista1[i] == 'V' and lista2[i] != 'V':
+            contrariedad += 1
+        
+    if contrariedad == len(lista1):
+        print("La lista 1 es contraria a la lista 2.")
+
+    #Subcontrariedad
+    subcontrariedad = 0
+    for i in range(len(lista1)):
+        if lista1[i] == 'F' and lista2[i] != 'F':
+            subcontrariedad += 1
+        
+    if subcontrariedad == len(lista1):
+        print("La lista 1 es subcontraria a la lista 2.")
+
+    #Contradictoriedad
+    contradictoriedad = 0
+    for i in range(len(lista1)):
+        if lista1[i] != lista2[i]:
+            contradictoriedad += 1
+        
+    if contradictoriedad == len(lista1):
+        print("La lista 1 es contradictoria a la lista 2.")
+
+relaciones_logicas(p, p)
